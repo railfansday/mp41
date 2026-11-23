@@ -26,12 +26,9 @@ jobs:
           pip install --upgrade pip
           pip install icrawler moviepy google-api-python-client google-auth-oauthlib
 
-      - name: Generate MP4 videos
-        run: python mp4.py
-
-      - name: Upload videos to YouTube
+      - name: Generate and Upload YouTube Shorts
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
-        run: python upload_yt.py
+        run: python mp4.py
